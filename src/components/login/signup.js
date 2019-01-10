@@ -1,8 +1,12 @@
 
 import React,{Component} from 'react'
 import './index.scss'
+import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog'
 
+//@saferender相当于已经执行了这个函数(不用加())
+//@saferender()相当于执行renturn的函数
+@saferender()
 class signup extends Component{
     constructor(){
         super()
@@ -12,6 +16,9 @@ class signup extends Component{
 
     signup = () => {
         Dialog.show()
+    }
+    componentWillMount(){
+        // throw new Error()
     }
 
     render(){
