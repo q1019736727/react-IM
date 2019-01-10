@@ -1,5 +1,5 @@
 
-import {REG_STATE} from '../stateType'
+import {REG_STATE} from '../action/stateType'
 
 export default function signReducer(state = {
     regState:0

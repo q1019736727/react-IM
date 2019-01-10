@@ -1,6 +1,7 @@
 
 import React,{Component} from 'react'
 import './index.scss'
+import Dialog from '../common/dialog'
 
 class signup extends Component{
     constructor(){
@@ -10,7 +11,7 @@ class signup extends Component{
     }
 
     signup = () => {
-
+        Dialog.show()
     }
 
     render(){
