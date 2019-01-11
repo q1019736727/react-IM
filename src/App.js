@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SignUp from './components/login/signup'
+import {Router,Route} from 'react-router'
 
 
 class App extends Component {
@@ -14,4 +14,18 @@ class App extends Component {
   }
 }
 
-export default App;
+export default class Main extends Component{
+    render(){
+        return(
+            <div>
+                <App></App>
+            </div>
+        )
+    }
+}
+{/*<Router>*/}
+    {/*<div>*/}
+        {/*<Route path='/' component={App}/>*/}
+
+    {/*</div>*/}
+{/*</Router>*/}

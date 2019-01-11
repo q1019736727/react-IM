@@ -15,27 +15,18 @@ class Dialog extends Component{
     }
 }
 
-let wrapper = document.createElement('div')
-let timer
+let wrapper
 const show = (props) => {
     wrapper = document.createElement('div');
     document.body.appendChild(wrapper);
     ReactDOM.render(<Dialog/>,wrapper)
-    if (timer){
-        clearInterval(timer)
-    }
-    timer = setTimeout(()=>{
-        hide()
-    },3000)
 }
 
 
 const hide = () => {
-    if (wrapper) {
-        ReactDOM.unmountComponentAtNode(wrapper)
-        wrapper.parentNode.removeChild(wrapper);
-        wrapper = null
-    }
+    ReactDOM.unmountComponentAtNode(wrapper)
+    wrapper.parentNode.removeChild(wrapper);
+    wrapper = null
 }
 
 export default {

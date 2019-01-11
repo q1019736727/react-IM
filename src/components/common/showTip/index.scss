@@ -1,0 +1,35 @@
+
+@import "../../css/main";
+.tip{
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &.success{
+    section{
+      background: $main_color;
+    }
+  }
+  &.error{
+    section{
+      background: red;
+    }
+  }
+  section{
+    padding: 10px 50px;
+    animation: 1s gradient linear;
+    color: white;
+    border-radius: 6px;
+  }
+}
+@keyframes gradient {
+  0%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
