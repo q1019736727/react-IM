@@ -1,5 +1,5 @@
 
-export default function saferender(config) {
+export default function saferender(config = function () {}) {
     return function(target) {
         let actions = [
             'componentWillMount',
@@ -11,10 +11,39 @@ export default function saferender(config) {
             'componentWillReceiveProps',
             'componentWillUnmount'
         ]
-        actions.forEach((value,index)=>{
-            console.log(value,index)
+        
+        actions.forEach((method)=>{
+
+            let fn = method === 'shouldComponentUpdate' ? shouldComponentUpdate():function () {
+                return null
+            }
+            //组件执行了生命周期的方法才有此方法,不然就是空的
+            let unsafe = target.prototype[method] || fn
+            target.prototype[method] = function () {
+                try {
+                    return unsafe.call(this,arguments)
+                }catch (error) {
+                    let report = {
+                        displayName:target.name,
+                        method:method,
+                        state:this.state,
+                        props:this.props,
+                        message:error.stack,
+                    }
+                    if (config.errorHandler){
+                        console.error('Error',report)
+                    }
+                    config.errorHandler = config.errorHandler || function(e){
+                        console.error('Error',e)
+                    }
+                    config.errorHandler(report)
+                }
+            }
         })
-        console.log(arguments)
     }
 
+}
+
+function shouldComponentUpdate() {
+    return true
 }
