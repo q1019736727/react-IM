@@ -4,6 +4,7 @@ import './index.scss'
 import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog/dialog'
 import {showTip} from '../common/showTip/tiptool'
+import {Link} from 'react-router-dom'
 
 // @saferender 相当于已经执行了这个函数(不用加())
 // @saferender() 相当于执行renturn的函数
@@ -13,8 +14,8 @@ import {showTip} from '../common/showTip/tiptool'
     }
 })
 class signup extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             name:'chiuyung'
         }
@@ -23,24 +24,10 @@ class signup extends Component{
     }
 
     signup = () => {
-        showTip({
-            title:'注册成功',
-            type: 'success'
-        })
-        // Dialog.show()
-        // let timer = setTimeout(()=>{
-        //     Dialog.hide()
-        //     clearInterval(timer)
-        //     showTip({
-        //         title:'注册成功',
-        //         type: 'success'
-        //     })
-        // },3000)
-    }
-    componentWillMount(){
-        throw new Error()
+
     }
     render(){
+        /*Link主要是虚拟dom中应用*/
         return(
             <div className='BG'>
                 <section className='sign-wrapper'>
@@ -50,7 +37,7 @@ class signup extends Component{
                     <input ref='nickname' type="text" name='nickname' placeholder='昵称'/>
                     <button onClick={this.signup}>注册</button>
                     <p>已有账号，
-                        <a>登录</a>
+                        <Link to="/signin">登录 </Link>
                     </p>
                 </section>
             </div>
