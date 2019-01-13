@@ -17,15 +17,9 @@ class App extends Component {
 export default class Main extends Component{
     render(){
         return(
-            <div>
-                <App></App>
-            </div>
+            <Router>
+                <Route exact path='/' component={App}></Route>
+            </Router>
         )
     }
 }
-{/*<Router>*/}
-    {/*<div>*/}
-        {/*<Route path='/' component={App}/>*/}
-
-    {/*</div>*/}
-{/*</Router>*/}
