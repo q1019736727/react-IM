@@ -3200,11 +3200,6 @@ duplexify@^3.4.2, duplexify@^3.6.0:
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
 
-easemob-websdk@^1.8.4:
-  version "1.8.4"
-  resolved "http://registry.npm.taobao.org/easemob-websdk/download/easemob-websdk-1.8.4.tgz#567233568980f783d07b585fbd0ec2d0d50f9c5a"
-  integrity sha1-VnIzVomA94PQe1hfvQ7C0NUPnFo=
-
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"

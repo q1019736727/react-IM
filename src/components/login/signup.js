@@ -5,6 +5,7 @@ import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog/dialog'
 import {showTip} from '../common/showTip/tiptool'
 import {Link} from 'react-router-dom'
+import WebIM from '../../webIM/init'
 
 // @saferender 相当于已经执行了这个函数(不用加())
 // @saferender() 相当于执行renturn的函数
@@ -24,6 +25,21 @@ class signup extends Component{
     }
 
     signup = () => {
+        let options = {
+            username: this.refs.username.value,
+            password: this.refs.password.value,
+            nickname: this.refs.nickname.value,
+            success: ()=>{
+                alert('注册成功')
+            },
+            error: ()=>{
+                alert('注册失败')
+            },
+            appKey: 'seventcq#react-im',
+            apiUrl: 'http://a1.easemob.com'
+        }
+        console.log(options)
+        WebIM.conn.open(options)
 
     }
     render(){
