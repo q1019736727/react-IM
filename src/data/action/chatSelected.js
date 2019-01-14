@@ -1,10 +1,12 @@
+import {CHAT_STATE} from "./actionType";
 
-export default function chatChange(options){
-    alert(options)
-    return (dispatch) => {
-        return new Promise((resolve, reject) => {
-            alert(11)
-            resolve()
+export function chatChange(options){
+    return  (dispatch) => {
+        dispatch({
+            type:CHAT_STATE,
+            payload:{
+                state:options
+            }
         })
     }
 }

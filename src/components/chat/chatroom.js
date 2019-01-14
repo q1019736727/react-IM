@@ -19,7 +19,6 @@ class ChatRoom extends Component {
         return(
             <div className='room-wrapper'>
                 <div className='room'>
-                    {this.props.selctItem}
                     <Silder></Silder>
                 </div>
             </div>
