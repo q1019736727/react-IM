@@ -1,11 +1,13 @@
 
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import sign from './reducer/sign'
+import chatselect from './reducer/chatSelected'
 import thunk from 'redux-thunk';
 
 
 const _reducers = {
-    sign: sign
+    sign: sign,
+    chatselect: chatselect
 }
 
 const reducers = combineReducers(_reducers);

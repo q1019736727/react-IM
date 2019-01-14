@@ -8,7 +8,7 @@ import Silder from './sliderBar'
 
 @connect(
     state => ({
-        registState:state.sign.regState
+        selctItem:state.chatselect.selctItem
     })
 )
 @saferender((error)=>{
@@ -19,6 +19,7 @@ class ChatRoom extends Component {
         return(
             <div className='room-wrapper'>
                 <div className='room'>
+                    {this.props.selctItem}
                     <Silder></Silder>
                 </div>
             </div>
