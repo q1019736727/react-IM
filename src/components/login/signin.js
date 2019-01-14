@@ -24,20 +24,15 @@ class signin extends Component{
     }
 
     signin = () => {
-        showTip({
-            title:'注册成功',
-            type: 'success'
-        })
-        this.props.history.push('./chatroom')
-        // Dialog.show()
-        // let timer = setTimeout(()=>{
-        //     Dialog.hide()
-        //     clearInterval(timer)
-        //     showTip({
-        //         title:'注册成功',
-        //         type: 'success'
-        //     })
-        // },3000)
+        let username = this.refs.username.value.trim()
+        let password = this.refs.password.value.trim()
+        if (!username || !password) {
+            showTip({
+                title: '请将信息填写完整',
+                type: 'error'
+            })
+            return
+        }
     }
     render(){
         return(

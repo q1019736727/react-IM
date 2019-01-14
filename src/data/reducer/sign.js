@@ -1,8 +1,8 @@
 
-import {REG_STATE} from '../action/stateType'
+// import {REG_STATE} from '../action/stateType'
 
 export default function signReducer(state = {
-    regState:0
+    regState: 10
 },action ) {
     switch (action) {
         case 'REG_STATE':

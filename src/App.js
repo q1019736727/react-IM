@@ -5,28 +5,31 @@ import SignIn from './components/login/signin'
 import ChatRoom from './components/chat/chatroom'
 import NotFound from './components/404/notfound'
 import './webIM/init'
+import store from './data/create'
+import {Provider} from 'react-redux'
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    withRouter
+    Switch
 } from 'react-router-dom';
 
 class App extends Component {
   render() {
       return (
-      <div className="App">
-          <Router>
-              <div>
-                  <Switch>
-                      <Route path='/signin' component={SignIn}></Route>
-                      <Route path='/chatroom' component={ChatRoom}></Route>
-                      <Route path='/404' component={NotFound}></Route>
-                      <Route path='/' component={SignUp}></Route>
-                  </Switch>
+          <Provider store={store}>
+              <div className="App">
+                  <Router>
+                      <div>
+                          <Switch>
+                              <Route path='/signin' component={SignIn}></Route>
+                              <Route path='/chatroom' component={ChatRoom}></Route>
+                              <Route path='/404' component={NotFound}></Route>
+                              <Route path='/' component={SignUp}></Route>
+                          </Switch>
+                      </div>
+                  </Router>
               </div>
-          </Router>
-      </div>
+          </Provider>
     );
   }
 }
