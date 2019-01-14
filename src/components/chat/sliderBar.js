@@ -1,10 +1,12 @@
 
 import React,{Component} from 'react'
 import './css/slider.scss'
+
+
 export default class sliderBar extends Component{
     render(){
         return(
-            <section>
+            <section className='sliderBar'>
                 <header>
                     <svg className="icon" aria-hidden="true">
                         <use xlinkHref="#icon-user"></use>
