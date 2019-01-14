@@ -10,9 +10,10 @@ const _reducers = {
 
 const reducers = combineReducers(_reducers);
 
+/*使用异步必须配置thunk*/
 let middlewares = [thunk]
 
-let finalCreateStore = applyMiddleware()(createStore);
+let finalCreateStore = applyMiddleware(...middlewares)(createStore);
 
 const store = finalCreateStore(reducers);
 

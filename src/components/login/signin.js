@@ -3,9 +3,19 @@ import React,{Component} from 'react'
 import './index.scss'
 import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog/dialog'
+import WebIM from '@src/webIM/init'
 import {showTip} from '../common/showTip/tiptool'
 import {history} from 'react-router-dom'
-
+import {connect} from 'react-redux'
+import {loginAction} from '@src/data/action/sign'
+@connect(
+    state => ({
+        regState: state.sign.regState
+    }),
+    {
+        loginAction
+    }
+)
 // @saferender 相当于已经执行了这个函数(不用加())
 // @saferender() 相当于执行renturn的函数
 @saferender({
@@ -33,6 +43,28 @@ class signin extends Component{
             })
             return
         }
+        let options = {
+            user: username,
+            pwd: password,
+            appKey: 'seventcq#react-im',
+            apiUrl: 'https://a1.easemob.com',
+        }
+
+        let {loginAction} = this.props
+        console.log(loginAction)
+        loginAction(options).then(()=>{
+            showTip({
+                title: '登录成功',
+                type: 'success'
+            })
+            this.props.history.push('/chatroom')
+        }).catch(e => {
+            console.log(e)
+            showTip({
+                title: '未知错误',
+                type: 'error'
+            })
+        })
     }
     render(){
         return(

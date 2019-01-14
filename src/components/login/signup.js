@@ -5,8 +5,9 @@ import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog/dialog'
 import {showTip} from '../common/showTip/tiptool'
 import {Link} from 'react-router-dom'
-import WebIM from '../../webIM/init'
+import WebIM from '@src/webIM/init'
 import { connect } from "react-redux";
+import {regist} from '@src/data/action/sign'
 
 /*通过decorator获取store里面的值*/
 /*第一个是数据,第二个是操作函数*/
@@ -15,6 +16,9 @@ import { connect } from "react-redux";
         /*注册状态*/
         regState: state.sign.regState
     }),
+    {
+        regist
+    }
 )
 // @saferender 相当于已经执行了这个函数(不用加())
 // @saferender() 相当于执行renturn的函数
@@ -48,24 +52,21 @@ class signup extends Component{
             username: username,
             password: password,
             nickname: nickname,
-            success: ()=>{
-                showTip({
-                    title: '注册成功',
-                    type: 'success'
-                })
-                this.props.history.push('/signin')
-            },
-            error: ()=>{
-                showTip({
-                    title: '注册失败',
-                    type: 'error'
-                })
-            },
             appKey: 'seventcq#react-im',
             apiUrl: 'http://a1.easemob.com'
         }
-        console.log(options)
-        WebIM.conn.registerUser(options)
+        this.props.regist(options).then(()=>{
+            showTip({
+                title: '注册成功',
+                type: 'success'
+            })
+            this.props.history.push('/signin')
+        }).catch(e => {
+            showTip({
+                title: '用户已存在',
+                type: 'error'
+            })
+        })
 
     }
     render(){
@@ -79,7 +80,7 @@ class signup extends Component{
                     <input ref='nickname' type="text" name='nickname' placeholder='昵称'/>
                     <button onClick={this.signup}>注册</button>
                     <p>已有账号，
-                        <Link to="/signin">登录{this.props.regState} </Link>
+                        <Link to="/signin">登录</Link>
                     </p>
                 </section>
             </div>
@@ -88,7 +89,7 @@ class signup extends Component{
 }
 export default  signup;
 
-/*通过导出connect获取store*/
+/*通过导出connect获取store 第二种写法 */
 // function mapStateToProps(state){
 //    return state
 // }
