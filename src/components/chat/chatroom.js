@@ -2,6 +2,9 @@
 import React,{Component} from 'react'
 import saferender from '../../decorator/saferender'
 import {connect} from 'react-redux'
+import {getToken} from "../../untils/token";
+import './css/chatroom.scss'
+import Silder from './sliderBar'
 
 @connect(
     state => ({
@@ -14,7 +17,11 @@ import {connect} from 'react-redux'
 class ChatRoom extends Component {
     render(){
         return(
-            <div>聊天室{this.props.registState}</div>
+            <div className='room-wrapper'>
+                <div className='room'>
+                    <Silder></Silder>
+                </div>
+            </div>
         )
     }
 

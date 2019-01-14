@@ -1,0 +1,58 @@
+@import "../../css/main";
+section{
+  background: #fcfdfb;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  .singleChat,.groupChat,header{
+    .icon{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      fill: #dbdbdb;
+      &.active{
+        fill: $main_color;
+      }
+    }
+  }
+  .setting{
+    .icon{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      fill: #dbdbdb;
+      &.active{
+        fill: $main_color;
+      }
+    }
+  }
+  header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    .icon{
+      padding: auto;
+    }
+    .username{
+      margin-top: 15px;
+
+    }
+
+  }
+  .singleChat{
+    margin-top: 60px;
+  }
+  .groupChat{
+    margin-top: 20px;
+
+  }
+  .setting{
+    position: absolute;
+    bottom: 15px;
+  }
+}

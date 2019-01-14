@@ -8,6 +8,8 @@ import {showTip} from '../common/showTip/tiptool'
 import {history} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginAction} from '@src/data/action/sign'
+import {setToken} from "../../untils/token";
+
 @connect(
     state => ({
         regState: state.sign.regState
@@ -51,15 +53,14 @@ class signin extends Component{
         }
 
         let {loginAction} = this.props
-        console.log(loginAction)
-        loginAction(options).then(()=>{
+        loginAction(options).then((data)=>{
             showTip({
                 title: '登录成功',
                 type: 'success'
             })
+            setToken(data.access_token)
             this.props.history.push('/chatroom')
         }).catch(e => {
-            console.log(e)
             showTip({
                 title: '未知错误',
                 type: 'error'

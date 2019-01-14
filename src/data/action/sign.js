@@ -27,8 +27,8 @@ export function loginAction(options) {
         return new Promise((resolve, reject) => {
             let success = options.success
             let error = options.error
-            options.success = function () {
-                resolve()
+            options.success = function (data) {
+                resolve(data)
             }
             options.error = function (e) {
                 reject(e)
