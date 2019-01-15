@@ -3,7 +3,6 @@ import './App.css';
 import SignUp from './components/login/signup'
 import SignIn from './components/login/signin'
 import ChatRoom from './components/chat/chatroom'
-import NotFound from './components/404/notfound'
 import './webIM/init'
 import store from './data/create'
 import {Provider} from 'react-redux'
@@ -23,7 +22,6 @@ class App extends Component {
                           <Switch>
                               <Route path='/signin' component={SignIn}></Route>
                               <Route path='/chatroom' component={ChatRoom}></Route>
-                              <Route path='/404' component={NotFound}></Route>
                               <Route path='/' component={SignUp}></Route>
                           </Switch>
                       </div>

@@ -49,7 +49,7 @@ class signin extends Component{
             user: username,
             pwd: password,
             appKey: 'seventcq#react-im',
-            apiUrl: 'https://a1.easemob.com',
+            apiUrl: 'http://a1.easemob.com'
         }
 
         let {loginAction} = this.props
@@ -58,7 +58,7 @@ class signin extends Component{
                 title: '登录成功',
                 type: 'success'
             })
-            setToken(data.access_token)
+            setToken(data)
             this.props.history.push('/chatroom')
         }).catch(e => {
             showTip({

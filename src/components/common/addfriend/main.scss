@@ -1,0 +1,80 @@
+@import "../../css/main";
+.addfriend-wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  .addfriend{
+    width: 400px;
+    height: 170px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bfbfbf;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    header{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      border-bottom: 1px solid #e5e5e5;
+      span:nth-child(1){
+        margin-left: 15px;
+      }
+      span:nth-child(2){
+        color: gray;
+        margin-right: 15px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+    main{
+      height: 70px;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin-left: 15px;
+      input{
+        border: 1px solid #bfbfbf;
+        width: 220px;
+        height: 30px;
+        border-radius: 5px;
+        text-indent: 1em;
+        &:focus{
+          outline: none;
+          border: 1px solid $main_color;
+        }
+      }
+    }
+    footer{
+      display: flex;
+      justify-content: revert;
+      align-items: center;
+      flex-direction: row-reverse;
+      flex-grow: 1;
+      button{
+        width: 80px;
+        height: 30px;
+        background: $main_color;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-right: 15px;
+        &:focus{
+          outline: none;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
