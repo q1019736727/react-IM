@@ -34,7 +34,7 @@ class ChatRoom extends Component {
             <div className='room-wrapper'>
                 <div className='room'>
                     <Silder></Silder>
-                    <PeopleList username={username}></PeopleList>
+                    <PeopleList></PeopleList>
                 </div>
             </div>
         )

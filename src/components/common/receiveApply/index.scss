@@ -1,0 +1,57 @@
+@import "../../css/main";
+.receive-wrapper{
+  background-color: rgba(0,0,0,0.3);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .receive{
+    width: 400px;
+    height: 170px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    header{
+      line-height: 40px;
+      border-bottom: 1px solid #e5e5e5;
+      padding-left: 15px;
+    }
+    main{
+      line-height: 70px;
+      border-bottom: 1px solid #e5e5e5;
+      padding-left: 15px;
+    }
+    footer{
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      button{
+        width: 60px;
+        height: 30px;
+        border-radius: 5px;
+        margin-right: 15px;
+        color: white;
+        border: none;
+        &:focus{
+          outline: none;
+        }
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      &>button:nth-child(2){
+        background: $main_color;
+      }
+      &>button:nth-child(1){
+        background: red;
+      }
+    }
+
+  }
+}
