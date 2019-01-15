@@ -1,12 +1,14 @@
 
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import sign from './reducer/sign'
+import session from './reducer/session'
 import chatselect from './reducer/chatSelected'
 import thunk from 'redux-thunk';
 
 
 const _reducers = {
     sign: sign,
+    session:session,
     chatselect: chatselect
 }
 
