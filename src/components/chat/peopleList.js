@@ -7,7 +7,9 @@ import {showReceive} from "../common/receiveApply/receiveApply";
 import {getRosters} from "../../data/action/session";
 
 @connect(
-    ()=>({}),
+    (state)=>({
+        rosters:state.session
+    }),
     {
         getRosters
     }
@@ -15,9 +17,6 @@ import {getRosters} from "../../data/action/session";
 class PeopleList extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            rosters:[]
-        }
     }
     componentWillMount(){
         eventEmitter.on('presenceApply',this.handleMessage)
@@ -30,15 +29,25 @@ class PeopleList extends Component{
         showReceive(message)
     }
     render(){
+        /* 将修饰函数中reudx中值的改变会出发render,我们尽量可以将网络加载请求的值放在此处 */
+        let{rosters} = this.props.rosters
         return(
             <div className={'people-wrapper'}>
-                <ul>
-                    {this.state.rosters.map((friend)=>{
-                        return <li>列表</li>
-                    })}
-                </ul>
+                {rosters.length ? rosters.map((roster)=>{
+                    return <Bubbleitem {...roster} key={roster.name}/>
+                }):<span>暂无好友</span> }
             </div>
         )
     }
 }
 export default PeopleList
+
+class Bubbleitem extends Component{
+    render() {
+        return (
+            <div>
+                {this.props.name}
+            </div>
+        );
+    }
+}

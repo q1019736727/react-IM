@@ -8,6 +8,7 @@ import Silder from './sliderBar'
 import PeopleList from './peopleList'
 import {mesInit} from "@src/data/action/message";
 import eventEmitter from '@src/untils/event'
+import {history} from 'react-router-dom'
 
 @connect(
     state => ({
@@ -25,11 +26,14 @@ class ChatRoom extends Component {
         super(props)
     }
     componentWillMount(){
-        this.props.mesInit()
+        let getuser = getToken()
+        if (!getuser){
+            this.props.history.push('/signin')
+        }else{
+            this.props.mesInit()
+        }
     }
     render(){
-        let getuser = getToken()
-        let username = getuser ? getuser.user.username:''
         return(
             <div className='room-wrapper'>
                 <div className='room'>
