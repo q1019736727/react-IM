@@ -39,7 +39,6 @@ class ChatRoom extends Component {
         return true
     }
     render(){
-        console.log('当前选中',this.props.currentFriend)
         return(
             <div className='room-wrapper'>
                 <div className='room'>

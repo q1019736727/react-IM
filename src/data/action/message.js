@@ -2,6 +2,7 @@
 import WebIM from '@src/webIM/init'
 import eventEmitter from '@src/untils/event'
 import {getRosters} from "./session";
+import {MSG_LIST} from "./actionType";
 
 export function mesInit() {
     return (dispatch)=>{
@@ -25,6 +26,33 @@ export function mesInit() {
                 eventEmitter.emit('presenceApply',message)
             }
         })
+    }
+}
+
+export function sendMessage(message,to) {
+    return(dispatch)=>{
+        let id = WebIM.conn.getUniqueId();             // 生成本地消息id
+        var msg = new window.WebIM.message('txt', id);      // 创建文本消息
+        msg.set({
+            msg: message,                  // 消息内容
+            to: to,                          // 接收消息对象（用户id）
+            roomType: false,
+            success: function (id, serverMsgId) {
+                dispatch({
+                    type:MSG_LIST,
+                    payload:{
+                        msg:message,
+                        to:to,
+                        id:serverMsgId
+                    }
+                })
+            },
+            fail: function(e){
+                console.log("发送失败");
+            }
+        });
+        msg.body.chatType = 'singleChat';
+        WebIM.conn.send(msg.body);
     }
 }
 

@@ -1,15 +1,18 @@
 
 import {createStore, combineReducers, applyMiddleware} from 'redux';
+import '../webIM/init'
 import sign from './reducer/sign'
 import session from './reducer/session'
 import chatselect from './reducer/chatSelected'
+import message from './reducer/message'
 import thunk from 'redux-thunk';
 
 
 const _reducers = {
     sign: sign,
     session:session,
-    chatselect: chatselect
+    chatselect: chatselect,
+    message:message
 }
 
 const reducers = combineReducers(_reducers);

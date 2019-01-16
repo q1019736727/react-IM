@@ -3,7 +3,6 @@ import './App.css';
 import SignUp from './components/login/signup'
 import SignIn from './components/login/signin'
 import ChatRoom from './components/chat/chatroom'
-import './webIM/init'
 import store from './data/create'
 import {Provider} from 'react-redux'
 import {getToken} from "./untils/token";
