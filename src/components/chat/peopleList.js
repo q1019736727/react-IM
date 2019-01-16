@@ -68,7 +68,6 @@ class Bubbleitem extends Component {
         }
         this.props.setCurrentFriend(options)
     }
-
     render() {
         let select = this.props.selectName || {name:''}
         let url  = `/chatroom/single/${this.props.roster.name}`
@@ -77,7 +76,7 @@ class Bubbleitem extends Component {
             'active': this.props.roster.name===select.name
         });
         return (
-            <div className={mainClassName}>
+           /* <div className={mainClassName}>
                 <Link to={url} className="bubbleitem-wrapper-a" onClick={this.clickItem}>
                     <span className={'header'}>
                         <svg className="icon" aria-hidden="true">
@@ -89,7 +88,20 @@ class Bubbleitem extends Component {
                         <p></p>
                      </span>
                 </Link>
-            </div>
+            </div> */
+        <div className={mainClassName} onClick={this.clickItem}>
+            <a className="bubbleitem-wrapper-a">
+                <span className={'header'}>
+                    <svg className="icon" aria-hidden="true">
+                        <use xlinkHref="#icon-user"></use>
+                    </svg>
+                </span>
+                <span className={'messageinfo'}>
+                        <p>{this.props.roster.name}</p>
+                        <p></p>
+                </span>
+            </a>
+        </div>
         );
     }
 }

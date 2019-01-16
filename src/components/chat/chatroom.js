@@ -35,6 +35,9 @@ class ChatRoom extends Component {
             this.props.mesInit()
         }
     }
+    shouldComponentUpdate(){
+        return true
+    }
     render(){
         console.log('当前选中',this.props.currentFriend)
         return(
@@ -42,7 +45,7 @@ class ChatRoom extends Component {
                 <div className='room'>
                     <Silder></Silder>
                     <PeopleList></PeopleList>
-                    {/*<Bubble></Bubble>*/}
+                    {this.props.currentFriend !==null ? <Bubble/>:null}
                 </div>
             </div>
         )

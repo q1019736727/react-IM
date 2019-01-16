@@ -13,7 +13,6 @@ export default function saferender(config = function () {}) {
         ]
         
         actions.forEach((method)=>{
-
             let fn = method === 'shouldComponentUpdate' ? shouldComponentUpdate():function () {
                 return null
             }

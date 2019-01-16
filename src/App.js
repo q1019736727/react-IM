@@ -42,7 +42,7 @@ export default class Main extends Component {
                         <Route path='/signin' component={SignIn}></Route>
                         <Route path='/signup' component={SignUp}></Route>
                         <Route path='/chatroom' component={ChatRoom}>
-                            <Route path='/:chatType/:chatId' component={ChatRoom}></Route>
+                            /*<Route path='/:chatType/:chatId' component={ChatRoom}></Route>*/
                         </Route>
                     </div>
                 </Router>

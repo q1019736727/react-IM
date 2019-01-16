@@ -1,47 +1,33 @@
 import React,{Component} from 'react'
 import saferender from '../../decorator/saferender'
 import './css/bubble.scss'
+import {connect} from 'react-redux'
+
+@connect(
+    state => ({
+        currentFriend:state.session.currentFriend
+    }),
+    {
+
+    }
+)
 @saferender(
     (error)=>{
 
     }
 )
 class Bubblue extends Component{
+    shouldComponentUpdate(){
+        return true
+    }
     render() {
         return (
             <div className={'Bubblue-wrapper'}>
                 <header>
-                    姓名
+                    {this.props.currentFriend.name}
                 </header>
                 <main>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
-                    <Bubblueitem></Bubblueitem>
+
                     <Bubblueitem></Bubblueitem>
 
                 </main>
