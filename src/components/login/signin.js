@@ -5,7 +5,7 @@ import saferender from '../../decorator/saferender'
 import Dialog from '../common/dialog/dialog'
 import WebIM from '@src/webIM/init'
 import {showTip} from '../common/showTip/tiptool'
-import {history} from 'react-router-dom'
+import {history, Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {loginAction} from '@src/data/action/sign'
 import {setToken} from "../../untils/token";
@@ -75,6 +75,9 @@ class signin extends Component{
                     <input ref='username' type="text" name='username' placeholder='用户名'/>
                     <input ref='password' type="password" name='password' placeholder='密码'/>
                     <button onClick={this.signin}>登录</button>
+                    <p>没有账号，
+                        <Link to="/signup">注册</Link>
+                    </p>
                 </section>
             </div>
         )

@@ -1,5 +1,5 @@
 import WebIM from '@src/webIM/init'
-import {FRIEND_LIST} from "./actionType";
+import {FRIEND_LIST,SET_CURRENT} from "./actionType";
 
 export function getRosters() {
     return (dispatch)=>{
@@ -23,6 +23,17 @@ export function getRosters() {
                     reject(e);
                 }
             })
+        })
+    }
+}
+
+export function setCurrentFriend(options) {
+    return (dispatch)=>{
+        dispatch({
+            type: SET_CURRENT,
+            payload: {
+                current:options
+            }
         })
     }
 }

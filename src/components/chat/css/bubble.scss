@@ -1,0 +1,56 @@
+@import "../../css/main";
+.Bubblue-wrapper{
+  width: 705px;
+  display: flex;
+  flex-direction: column;
+  header{
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  main{
+    flex-grow: 1;
+    overflow: auto;
+  }
+  footer{
+    border-top: 1px solid #f2f2f2;
+    height: 155px;
+    position: relative;
+    .textarea{
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: calc(100% - 20px);
+      height: 70px;
+      textarea{
+        width: 100%;
+        height: calc(100% - 10px);
+        resize: none;
+        border: none;
+        font-size: 16px;
+        &:focus{
+          outline: none;
+        }
+      }
+    }
+    button{
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      width: 80px;
+      height: 25px;
+      border: none;
+      background: $main_color;
+      color: white;
+      &:focus{
+        outline: none;
+      }
+      &:hover{
+        background: $main_color_deep;
+        cursor: pointer;
+      }
+    }
+  }
+}

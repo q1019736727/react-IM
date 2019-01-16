@@ -8,7 +8,6 @@ export function mesInit() {
         WebIM.conn.listen({
             //连接成功回调
             onOpened: function ( message ) {
-                console.log('连接成功',message)
                 /* getRosters 里面也是一个 dispatch函数所以用 dispatch 执行才会执行 return里面的*/
                 dispatch(getRosters())
             } ,
@@ -28,3 +27,5 @@ export function mesInit() {
         })
     }
 }
+
+

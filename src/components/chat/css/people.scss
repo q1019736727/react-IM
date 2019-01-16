@@ -3,4 +3,32 @@
   width: 240px;
   border-right: 1px solid #f2f2f2;
   border-left: 1px solid #f2f2f2;
+  .bubbleitem-wrapper{
+    &.active{
+      background: #f3f6f6;
+    }
+    .bubbleitem-wrapper-a{
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      height: 60px;
+      overflow: hidden;
+      .header{
+        margin-left: 10px;
+        .icon{
+          fill: #dbdbdb;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+  .messageinfo{
+    margin-left: 10px;
+    margin-right: 5px;
+
+  }
+
 }

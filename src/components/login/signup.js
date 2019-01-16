@@ -79,9 +79,6 @@ class signup extends Component{
                     <input ref='password' type="password" name='password' placeholder='密码'/>
                     <input ref='nickname' type="text" name='nickname' placeholder='昵称'/>
                     <button onClick={this.signup}>注册</button>
-                    <p>已有账号，
-                        <Link to="/signin">登录</Link>
-                    </p>
                 </section>
             </div>
         )
