@@ -48,8 +48,8 @@ class signin extends Component{
         let options = {
             user: username,
             pwd: password,
-            appKey: 'seventcq#react-im',
-            apiUrl: 'http://a1.easemob.com'
+            appKey: window.WebIM.config.appkey,
+            apiUrl: window.WebIM.config.apiURL
         }
 
         let {loginAction} = this.props

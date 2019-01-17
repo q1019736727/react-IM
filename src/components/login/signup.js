@@ -52,8 +52,8 @@ class signup extends Component{
             username: username,
             password: password,
             nickname: nickname,
-            appKey: 'seventcq#react-im',
-            apiUrl: 'http://a1.easemob.com'
+            appKey: window.WebIM.config.appkey,
+            apiUrl: window.WebIM.config.apiURL
         }
         this.props.regist(options).then(()=>{
             showTip({
