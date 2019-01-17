@@ -35,7 +35,7 @@ export default class Main extends Component {
     render() {
         return (
             <Provider store={store}>
-                <Router>
+                <HashRouter>
                     <div>
                         <Route exact path="/" component = {App}></Route>
                         <Route path='/signin' component={SignIn}></Route>
@@ -44,7 +44,7 @@ export default class Main extends Component {
                             /*<Route path='/:chatType/:chatId' component={ChatRoom}></Route>*/
                         </Route>
                     </div>
-                </Router>
+                </HashRouter>
             </Provider>
         )
     }
