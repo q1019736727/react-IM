@@ -12,7 +12,33 @@
   }
   main{
     flex-grow: 1;
-    overflow: auto;
+    overflow:scroll;
+    .Bubblueitemwrapper{
+      padding: 10px;
+      display: flex;
+      &.right{
+        flex-direction: row-reverse;
+      }
+      .header{
+        .icon{
+          fill: #dbdbdb;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .content-wrapper{
+        padding: 0 10px;
+        .name{
+          font-size: 16px;
+        }
+        .content{
+          margin-top: 10px;
+          padding: 10px;
+          background: #f3f3f2;
+          border-radius: 5px;
+        }
+      }
+    }
   }
   footer{
     border-top: 1px solid #f2f2f2;

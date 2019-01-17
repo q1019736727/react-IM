@@ -6,7 +6,7 @@ export default function msgListReducer(state={
     switch (action.type) {
         case MSG_LIST:
             return Object.assign({},state,{
-                msglist: addMSG(action.payload.msg,action.payload.id,action.payload.to,state.msglist)
+                msglist: addMSG(action.payload.msg,action.payload.id,action.payload.from,action.payload.to,state.msglist)
             })
         default:
             return state
@@ -17,11 +17,12 @@ export default function msgListReducer(state={
 * to 和谁的信息(to就是对应人的名字)
 * msglist 和所有人的信息
 * */
-function addMSG(msg,id,to,msglist) {
+function addMSG(msg,id,from,to,msglist) {
     let list = msglist[to] || []
     list.push({
         msg:msg,
-        id:id
+        id:id,
+        from:from
     })
     msglist[to] = list
     return Object.assign({},msglist)

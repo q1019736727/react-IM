@@ -3,6 +3,7 @@ import WebIM from '@src/webIM/init'
 import eventEmitter from '@src/untils/event'
 import {getRosters} from "./session";
 import {MSG_LIST} from "./actionType";
+import {getToken} from "@src/untils/token";
 
 export function mesInit() {
     return (dispatch)=>{
@@ -15,6 +16,15 @@ export function mesInit() {
             //收到文本消息
             onTextMessage: function ( message ) {
                 console.log('收到消息',message)
+                dispatch({
+                    type:MSG_LIST,
+                    payload:{
+                        msg:message.data,
+                        to:message.from,
+                        id:message.id,
+                        from:message.from
+                    }
+                })
             },
             //好友列表
             onRoster: function ( roster ) {
@@ -31,6 +41,9 @@ export function mesInit() {
 
 export function sendMessage(message,to) {
     return(dispatch)=>{
+        let getuser = getToken()
+        let from = getuser ? getuser.user.username:''
+
         let id = WebIM.conn.getUniqueId();             // 生成本地消息id
         var msg = new window.WebIM.message('txt', id);      // 创建文本消息
         msg.set({
@@ -43,7 +56,8 @@ export function sendMessage(message,to) {
                     payload:{
                         msg:message,
                         to:to,
-                        id:serverMsgId
+                        id:serverMsgId,
+                        from: from
                     }
                 })
             },

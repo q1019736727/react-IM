@@ -18,7 +18,7 @@ WebIM.config = {
     /*
      * Application AppKey
      */
-    appkey: 'easemob-demo#chatdemoui',
+    appkey: 'seventcq#react-im',
 
     /*
      * Whether to use wss
