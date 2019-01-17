@@ -22,6 +22,9 @@ import {getToken} from "@src/untils/token";
     }
 )
 class Bubblue extends Component{
+    constructor(){
+        super()
+    }
     shouldComponentUpdate(){
         return true
     }
@@ -29,6 +32,11 @@ class Bubblue extends Component{
         let {sendMessage} = this.props
         sendMessage(this.refs.text.value,this.props.currentFriend.name)
         this.refs.text.value = ''
+    }
+    componentDidUpdate(){
+        let listwrapper = this.refs.listwrapper
+        let list = this.refs.list
+        listwrapper.scrollTop = list.offsetHeight
     }
     render() {
         let to = this.props.currentFriend.name
@@ -38,10 +46,12 @@ class Bubblue extends Component{
                 <header>
                     {this.props.currentFriend.name}
                 </header>
-                <main>
-                    {list.map((msg)=>{
-                        return <Bubblueitem message={msg} key={msg.id}/>
-                    })}
+                <main ref={'listwrapper'}>
+                    <div className={'list'} ref={'list'}>
+                        {list.map((msg)=>{
+                            return <Bubblueitem message={msg} key={msg.id}/>
+                        })}
+                    </div>
                 </main>
                 <footer>
                     <div className={'textarea'}>

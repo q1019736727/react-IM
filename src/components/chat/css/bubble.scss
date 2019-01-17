@@ -11,31 +11,34 @@
     border-bottom: 1px solid #f2f2f2;
   }
   main{
-    flex-grow: 1;
-    overflow:scroll;
-    .Bubblueitemwrapper{
-      padding: 10px;
-      display: flex;
-      &.right{
-        flex-direction: row-reverse;
-      }
-      .header{
-        .icon{
-          fill: #dbdbdb;
-          width: 40px;
-          height: 40px;
+    height: 405px;
+    overflow:auto;
+    .list{
+      overflow:scroll;
+      .Bubblueitemwrapper{
+        padding: 10px;
+        display: flex;
+        &.right{
+          flex-direction: row-reverse;
         }
-      }
-      .content-wrapper{
-        padding: 0 10px;
-        .name{
-          font-size: 16px;
+        .header{
+          .icon{
+            fill: #dbdbdb;
+            width: 40px;
+            height: 40px;
+          }
         }
-        .content{
-          margin-top: 10px;
-          padding: 10px;
-          background: #f3f3f2;
-          border-radius: 5px;
+        .content-wrapper{
+          padding: 0 10px;
+          .name{
+            font-size: 16px;
+          }
+          .content{
+            margin-top: 10px;
+            padding: 10px;
+            background: #f3f3f2;
+            border-radius: 5px;
+          }
         }
       }
     }
